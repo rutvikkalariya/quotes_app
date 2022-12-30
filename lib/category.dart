@@ -75,13 +75,14 @@ class _CategoeryPageState extends State<CategoeryPage> {
                       ),
                       child: GestureDetector(
                         onTap: () {
-                          var c_id = myDataList[index]['category_id'];
+                          var c_id = (index + 1).toString();
                           var c_name = myDataList[index]['category_name'];
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: ((context) => ListProduct(
-                                        c_id: c_id,
+                                        c_id: myDataList[index]['category_id']
+                                            .toString(),
                                         c_name: c_name,
                                       ))));
                         },

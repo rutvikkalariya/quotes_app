@@ -18,9 +18,12 @@ class _ListProductState extends State<ListProduct> {
   var myDataList = [];
 
   Future _getData() async {
-    var url =
-        Uri.https('akashsir.in', '/myapi/at-quotes/api/api-list-product.php');
-    var response = await http.post(url, body: {'category_id': widget.c_id});
+    final c_id1 = {'category_id': widget.c_id};
+    var url = Uri.https(
+        'akashsir.in', '/myapi/at-quotes/api/api-list-product.php', c_id1);
+    var response = await http.get(
+      url,
+    );
     print(widget.c_id);
 
     print('Response status: ${response.statusCode}');
